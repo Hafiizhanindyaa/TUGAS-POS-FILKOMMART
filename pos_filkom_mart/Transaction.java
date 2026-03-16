@@ -5,6 +5,18 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Class Transaction
+ * Digunakan untuk mengelola transaksi penjualan pada sistem kasir.
+ * 
+ * Fitur yang tersedia:
+ * - Menambahkan produk ke keranjang
+ * - Mendukung method overloading addItem()
+ * - Memproses transaksi dan menghitung total pembayaran
+ * - Menampilkan struk pembelian
+ */
+
+public class Transaction {
 public class Transaction {
     private ArrayList<Product> items;
     private int totalItems;
