@@ -74,6 +74,20 @@ public class ShopManagementSystem {
         // Memproses transaksi 2
         transaksi2.processSale();
 
-        // TODO: Anggota 5 - Tampilkan laporan
+        // ===== LAPORAN PENJUALAN =====
+        System.out.println("============== LAPORAN PENJUALAN ==============");
+
+        // Mengambil total transaksi
+        double totalTransaksi1 = transaksi1.getTotalTransactionAmount();
+        double totalTransaksi2 = transaksi2.getTotalTransactionAmount();
+
+        // Total seluruh penjualan
+        double totalPenjualan = totalTransaksi1 + totalTransaksi2;
+
+        System.out.println("Total Penjualan Transaksi 1 : Rp " + totalTransaksi1);
+        System.out.println("Total Penjualan Transaksi 2 : Rp " + totalTransaksi2);
+        System.out.println("-----------------------------------------------");
+        System.out.println("TOTAL PENJUALAN HARI INI    : Rp " + totalPenjualan);
+        System.out.println("===============================================");
     }
 }
