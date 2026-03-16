@@ -1,5 +1,18 @@
 package pos_filkom_mart;
 
+/**
+ * Class ElectronicProduct
+ * Subclass dari Product yang merepresentasikan
+ * produk elektronik.
+ * 
+ * Atribut tambahan:
+ * warrantyPeriod -> masa garansi produk.
+ * 
+ * Diskon:
+ * 5% dari harga produk
+ * + tambahan 2% jika harga lebih dari 500000.
+ */
+
 public class ElectronicProduct extends Product {
     // Tambahkan atribut warrantyPeriod & Constructor
     private String warrantyPeriod;
