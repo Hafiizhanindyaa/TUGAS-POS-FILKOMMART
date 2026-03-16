@@ -1,3 +1,5 @@
+package pos_filkom_mart;
+
 public class ClothingProduct extends Product {
     // Tambahkan atribut size, brand & Constructor
     private String size;

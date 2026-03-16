@@ -1,3 +1,5 @@
+package pos_filkom_mart;
+
 public class ElectronicProduct extends Product {
     // Tambahkan atribut warrantyPeriod & Constructor
     private String warrantyPeriod;

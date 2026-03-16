@@ -1,3 +1,5 @@
+package pos_filkom_mart;
+
 public class ShopManagementSystem {
     public static void main(String[] args) {
         System.out.println("======= Sistem Kasir Filkom Mart =======");

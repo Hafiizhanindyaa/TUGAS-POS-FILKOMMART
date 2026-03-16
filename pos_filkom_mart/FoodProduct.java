@@ -1,3 +1,5 @@
+package pos_filkom_mart;
+
 public class FoodProduct extends Product {
     // Tambahkan atribut expiryDate & Constructor
     private String expiryDate;
