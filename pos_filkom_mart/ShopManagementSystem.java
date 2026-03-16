@@ -1,5 +1,15 @@
 package pos_filkom_mart;
 
+/**
+ * Class utama untuk menjalankan sistem POS Filkom Mart.
+ * 
+ * Class ini berfungsi untuk:
+ * - Membuat objek produk
+ * - Menampilkan daftar produk
+ * - Menjalankan simulasi transaksi
+ * - Menampilkan laporan penjualan dan produk terlaris
+ */
+
 public class ShopManagementSystem {
     public static void main(String[] args) {
         System.out.println("======= Sistem Kasir Filkom Mart =======");
