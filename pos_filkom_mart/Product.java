@@ -1,5 +1,16 @@
 package pos_filkom_mart;
 
+/**
+ * Class abstract Product
+ * Menjadi superclass untuk semua jenis produk di Filkom Mart.
+ * Class ini menyimpan atribut dasar produk seperti:
+ * productId, name, price, dan stockQuantity.
+ * 
+ * Class ini juga memiliki method abstract calculateDiscount()
+ * yang harus diimplementasikan oleh subclass.
+ */
+
+public abstract class Product {
 public abstract class Product {
     // 1. Atribut private (Enkapsulasi)
     private String productId;
