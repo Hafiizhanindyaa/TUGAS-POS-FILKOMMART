@@ -1,11 +1,12 @@
 # LK03 - Kelas, Obyek, Constructor, Inheritance, Polymorphism, Overloading dan Overriding
-Kelompok
-|Nama                      |NIM              |
-|Muhammad Hafizh Raihan    |255150200111036  |
-|Jaler Zuhdi Nail          |255150207111062  |
-|Muhammad Hafiizh Anindya  |255150207111057  |
-|Hafiz Adli Assyahadat     |255150200111038  |
-|Naufal Fadhil Arkani      |255150200111037  |
+## Kelompok
+| Nama | NIM |
+|------|-----|
+| Muhammad Hafizh Raihan | 255150200111036 |
+| Jaler Zuhdi Nail | 255150207111062 |
+| Muhammad Hafiizh Anindya | 255150207111057 |
+| Hafiz Adli Assyahadat | 255150200111038 |
+| Naufal Fadhil Arkani | 255150200111037 |
 
 
 TUGAS-POS-FILKOMMART
