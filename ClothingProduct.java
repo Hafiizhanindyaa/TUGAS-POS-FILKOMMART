@@ -49,7 +49,5 @@ public class ClothingProduct extends Product {
      super.getProductInfo();
      System.out.println("Ukuran     : " + this.size);
      System.out.println("Brand      : " + this.brand);
-     System.out.println("Diskon   : " + calculateDiscount());
-     System.out.println("Harga Akhir    : Rp " + (getPrice()-calculateDiscount()));
     }
 }

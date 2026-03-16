@@ -12,7 +12,7 @@ public class FoodProduct extends Product {
         this.expiryDate = expiryDate;
     }
 
- public String getExpiryDate() {
+    public String getExpiryDate() {
         return expiryDate;
     }
 
@@ -34,8 +34,6 @@ public class FoodProduct extends Product {
     public void getProductInfo(){
         super.getProductInfo();
         System.out.println("Tanggal Expiry : " + this.expiryDate);
-        System.out.println("Diskon         : Rp " + calculateDiscount());
-        System.out.println("Harga Akhir    : Rp " + (getPrice()-calculateDiscount()));
     }
 
 

@@ -36,8 +36,5 @@ public class ElectronicProduct extends Product {
     public void getProductInfo(){
         super.getProductInfo();
         System.out.println("Warranty period : " + this.warrantyPeriod);
-        System.out.println("Diskon         : Rp " + calculateDiscount());
-        System.out.println("Harga Akhir    : Rp " + (getPrice()-calculateDiscount()));
-
     }
 }
