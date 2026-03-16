@@ -3,11 +3,14 @@ import java.util.ArrayList;
 public class Transaction {
     private ArrayList<Product> items;
     private int totalItems;
+    private static int transactionCounter = 1;
+    private String transactionId;
 
     // Constructor untuk inisialisasi
     public Transaction() {
         this.items = new ArrayList<>();
         this.totalItems = 0;
+        this.transactionId = "TRX-" + String.format("%03d", transactionCounter++);
     }
 
     // Method Overloading: addItem dengan 1 parameter (1 produk)
@@ -29,7 +32,7 @@ public class Transaction {
     // Method processSale() untuk memproses keranjang dan menghitung total
     public void processSale() {
         System.out.println("\n========================================");
-        System.out.println("             STRUK PEMBELIAN            ");
+        System.out.println("             STRUK PEMBELIAN - " + transactionId );
         System.out.println("========================================");
         
         double totalHargaAwal = 0.0;
@@ -43,6 +46,7 @@ public class Transaction {
 
             System.out.println("- " + item.getName());
             System.out.println("  Harga   : Rp " + harga);
+            
             if (diskon > 0) {
                 System.out.println("  Diskon  : Rp " + diskon);
             }
@@ -56,6 +60,7 @@ public class Transaction {
         }
 
         System.out.println("----------------------------------------");
+        System.out.println("ID Transaksi  : " + transactionId);
         System.out.println("Total Item    : " + totalItems);
         System.out.println("Total Belanja : Rp " + totalHargaAwal);
         System.out.println("Total Diskon  : Rp " + totalDiskon);
@@ -63,7 +68,12 @@ public class Transaction {
         System.out.println("========================================\n");
     }
 
-    // Method tambahan (Getter) agar bisa mengambil total bayar dari setiap transaksi
+    // Getter untuk ID 
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    // Getter untuk mengambil total bayar dari setiap transaksi
     public double getTotalTransactionAmount() {
         double total = 0.0;
         for (Product item : items) {
