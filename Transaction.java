@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Transaction {
     private ArrayList<Product> items;
@@ -31,46 +34,57 @@ public class Transaction {
 
     // Method processSale() untuk memproses keranjang dan menghitung total
     public void processSale() {
-    String formatLabel = " %-18s : "; 
-    
-    System.out.println("\n====================================================");
-    System.out.printf(" %-28s %18s\n", "STRUK PEMBELIAN", transactionId);
-    System.out.println("====================================================");
+        String formatLabel = " %-18s : "; 
+        
+        System.out.println("\n====================================================");
+        System.out.printf(" %-28s %18s\n", "STRUK PEMBELIAN", transactionId);
+        System.out.println("====================================================");
 
-    double totalHargaAwal = 0.0;
-    double totalDiskon = 0.0;
-    double totalBayar = 0.0;
+        double totalHargaAwal = 0.0;
+        double totalDiskon = 0.0;
+        double totalBayar = 0.0;
 
-    for (Product item : items) {
-        double harga = item.getPrice();
-        double diskon = item.calculateDiscount();
-        double hargaSetelahDiskon = harga - diskon;
+        Map<String, Integer> itemQuantities = new LinkedHashMap<>();
+        Map<String, Product> itemData = new HashMap<>();
 
-        System.out.println(" " + item.getName());
-        System.out.printf(formatLabel + "Rp %15.2f\n", "Harga", harga);
+        for (Product item : items) {
+            String name = item.getName();
+            itemQuantities.put(name, itemQuantities.getOrDefault(name, 0) + 1);
+            itemData.put(name, item);
 
-        if (diskon > 0) {
-            System.out.printf(formatLabel + "Rp %15.2f\n", "Diskon", diskon);
+            totalHargaAwal += item.getPrice();
+            totalDiskon += item.calculateDiscount();
+            totalBayar += (item.getPrice() - item.calculateDiscount());
+            item.setStockQuantity(item.getStockQuantity() - 1);
         }
-        System.out.printf(formatLabel + "Rp %15.2f\n", "Subtotal", hargaSetelahDiskon);
-        System.out.println(); 
 
-        totalHargaAwal += harga;
-        totalDiskon += diskon;
-        totalBayar += hargaSetelahDiskon;
+        for (String name : itemQuantities.keySet()) {
+            int qty = itemQuantities.get(name);
+            Product p = itemData.get(name);
 
-        item.setStockQuantity(item.getStockQuantity() - 1);
-    }
+            double totalHargaItem = p.getPrice() * qty;
+            double totalDiskonItem = p.calculateDiscount() * qty;
+            double subtotalItem = totalHargaItem - totalDiskonItem;
 
-    System.out.println("----------------------------------------------------");
-    System.out.printf(formatLabel + "%s\n", "Transaction ID", transactionId);
-    System.out.printf(formatLabel + "%s\n", "Total Items", totalItems);
-    System.out.println("----------------------------------------------------");
-    System.out.printf(formatLabel + "Rp %15.2f\n", "Price", totalHargaAwal);
-    System.out.printf(formatLabel + "Rp %15.2f\n", "Discount", totalDiskon);
-    System.out.println("....................................................");
-    System.out.printf(formatLabel + "Rp %15.2f\n", "GRAND TOTAL", totalBayar);
-    System.out.println("====================================================\n");
+            System.out.printf(" %dx %s\n", qty, name);
+            System.out.printf(formatLabel + "Rp %15.2f\n", "Harga", totalHargaItem);
+
+            if (totalDiskonItem > 0) {
+                System.out.printf(formatLabel + "Rp %15.2f\n", "Diskon", totalDiskonItem);
+            }
+            System.out.printf(formatLabel + "Rp %15.2f\n", "Subtotal", subtotalItem);
+            System.out.println(); 
+        }
+
+        System.out.println("----------------------------------------------------");
+        System.out.printf(formatLabel + "%s\n", "Transaction ID", transactionId);
+        System.out.printf(formatLabel + "%s\n", "Total Items", totalItems);
+        System.out.println("----------------------------------------------------");
+        System.out.printf(formatLabel + "Rp %15.2f\n", "Price", totalHargaAwal);
+        System.out.printf(formatLabel + "Rp %15.2f\n", "Discount", totalDiskon);
+        System.out.println("....................................................");
+        System.out.printf(formatLabel + "Rp %15.2f\n", "GRAND TOTAL", totalBayar);
+        System.out.println("====================================================\n");
     }
 
     // Getter untuk ID 
