@@ -11,7 +11,6 @@ package pos_filkom_mart;
  */
 
 public abstract class Product {
-public abstract class Product {
     // 1. Atribut private (Enkapsulasi)
     private String productId;
     private String name;
