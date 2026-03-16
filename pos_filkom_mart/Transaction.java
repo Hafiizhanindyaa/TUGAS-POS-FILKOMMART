@@ -17,7 +17,6 @@ import java.util.Map;
  */
 
 public class Transaction {
-public class Transaction {
     private ArrayList<Product> items;
     private int totalItems;
     private static int transactionCounter = 1;
