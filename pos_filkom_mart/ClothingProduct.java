@@ -1,5 +1,18 @@
 package pos_filkom_mart;
 
+/**
+ * Class ClothingProduct
+ * Subclass dari Product yang merepresentasikan
+ * produk pakaian.
+ * 
+ * Atribut tambahan:
+ * size -> ukuran pakaian
+ * brand -> merek pakaian
+ * 
+ * Diskon:
+ * 15% jika ukuran L atau XL.
+ */
+
 public class ClothingProduct extends Product {
     // Tambahkan atribut size, brand & Constructor
     private String size;
