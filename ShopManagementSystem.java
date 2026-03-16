@@ -89,5 +89,26 @@ public class ShopManagementSystem {
         System.out.println("-----------------------------------------------");
         System.out.println("TOTAL PENJUALAN HARI INI    : Rp " + totalPenjualan);
         System.out.println("===============================================");
+
+        // ===== MENENTUKAN PRODUK TERLARIS =====
+        System.out.println("\n============== PRODUK TERLARIS ==============");
+
+        // jumlah yang dijual (sesuai transaksi di atas)
+        int[] jumlahTerjual = {9, 7, 3, 2, 3, 1}; 
+        // urutan sesuai array produk
+
+        int max = jumlahTerjual[0];
+        int indexProduk = 0;
+
+        for (int i = 1; i < jumlahTerjual.length; i++) {
+        if (jumlahTerjual[i] > max) {
+        max = jumlahTerjual[i];
+        indexProduk = i;
+    }
+}
+
+        System.out.println("Produk Terlaris : " + produk[indexProduk].getName());
+        System.out.println("Jumlah Terjual  : " + max + " item");
+        System.out.println("==============================================");
     }
 }
