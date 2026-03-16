@@ -1,5 +1,17 @@
 package pos_filkom_mart;
 
+/**
+ * Class FoodProduct
+ * Merupakan subclass dari Product yang merepresentasikan
+ * produk makanan atau minuman.
+ * 
+ * Atribut tambahan:
+ * expiryDate -> tanggal kadaluarsa produk.
+ * 
+ * Diskon:
+ * 10% jika stok lebih dari 10.
+ */
+
 public class FoodProduct extends Product {
     // Tambahkan atribut expiryDate & Constructor
     private String expiryDate;
