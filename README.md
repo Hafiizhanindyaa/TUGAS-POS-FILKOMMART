@@ -1,5 +1,4 @@
 # TUGAS-POS-FILKOMMART
-# POS FILKOM MART
 
 Program ini merupakan simulasi sistem Point Of Sale (POS) sederhana
 untuk toko Filkom Mart menggunakan konsep Pemrograman Berorientasi
