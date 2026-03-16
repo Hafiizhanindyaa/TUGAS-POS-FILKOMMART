@@ -31,41 +31,46 @@ public class Transaction {
 
     // Method processSale() untuk memproses keranjang dan menghitung total
     public void processSale() {
-        System.out.println("\n========================================");
-        System.out.println("             STRUK PEMBELIAN - " + transactionId );
-        System.out.println("========================================");
-        
-        double totalHargaAwal = 0.0;
-        double totalDiskon = 0.0;
-        double totalBayar = 0.0;
+    String formatLabel = " %-18s : "; 
+    
+    System.out.println("\n====================================================");
+    System.out.printf(" %-28s %18s\n", "STRUK PEMBELIAN", transactionId);
+    System.out.println("====================================================");
 
-        for (Product item : items) {
-            double harga = item.getPrice();
-            double diskon = item.calculateDiscount(); 
-            double hargaSetelahDiskon = harga - diskon;
+    double totalHargaAwal = 0.0;
+    double totalDiskon = 0.0;
+    double totalBayar = 0.0;
 
-            System.out.println("- " + item.getName());
-            System.out.println("  Harga   : Rp " + harga);
-            
-            if (diskon > 0) {
-                System.out.println("  Diskon  : Rp " + diskon);
-            }
-            System.out.println("  Subtotal: Rp " + hargaSetelahDiskon);
-            
-            totalHargaAwal += harga;
-            totalDiskon += diskon;
-            totalBayar += hargaSetelahDiskon;
+    for (Product item : items) {
+        double harga = item.getPrice();
+        double diskon = item.calculateDiscount();
+        double hargaSetelahDiskon = harga - diskon;
 
-            item.setStockQuantity(item.getStockQuantity() - 1);
+        System.out.println(" " + item.getName());
+        System.out.printf(formatLabel + "Rp %15.2f\n", "Harga", harga);
+
+        if (diskon > 0) {
+            System.out.printf(formatLabel + "Rp %15.2f\n", "Diskon", diskon);
         }
+        System.out.printf(formatLabel + "Rp %15.2f\n", "Subtotal", hargaSetelahDiskon);
+        System.out.println(); 
 
-        System.out.println("----------------------------------------");
-        System.out.println("ID Transaksi  : " + transactionId);
-        System.out.println("Total Item    : " + totalItems);
-        System.out.println("Total Belanja : Rp " + totalHargaAwal);
-        System.out.println("Total Diskon  : Rp " + totalDiskon);
-        System.out.println("Total Bayar   : Rp " + totalBayar);
-        System.out.println("========================================\n");
+        totalHargaAwal += harga;
+        totalDiskon += diskon;
+        totalBayar += hargaSetelahDiskon;
+
+        item.setStockQuantity(item.getStockQuantity() - 1);
+    }
+
+    System.out.println("----------------------------------------------------");
+    System.out.printf(formatLabel + "%s\n", "Transaction ID", transactionId);
+    System.out.printf(formatLabel + "%s\n", "Total Items", totalItems);
+    System.out.println("----------------------------------------------------");
+    System.out.printf(formatLabel + "Rp %15.2f\n", "Price", totalHargaAwal);
+    System.out.printf(formatLabel + "Rp %15.2f\n", "Discount", totalDiskon);
+    System.out.println("....................................................");
+    System.out.printf(formatLabel + "Rp %15.2f\n", "GRAND TOTAL", totalBayar);
+    System.out.println("====================================================\n");
     }
 
     // Getter untuk ID 
